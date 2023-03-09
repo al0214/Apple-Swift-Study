@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         Quote(contents: "나는 나 자신을 빼고 다 안다.", name: "비용"),
         Quote(contents: "편견이란 실효성이 없는 의견이다.", name: "암브로스 빌"),
         Quote(contents: "분노는 바보들의 가슴속에서만 살아간다.", name: "아인슈타인"),
-        Quote(contents: "몇 번이라도 좋다... 이 끔찍한 생이여...다시!", name: "니체")
+        Quote(contents: "몇 번이라도 좋다... 이 끔찍한 생이여...다시!", name: "니체") //dd
     ]
     
     override func viewDidLoad() {
