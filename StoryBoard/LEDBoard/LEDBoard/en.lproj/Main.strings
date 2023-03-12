@@ -1,0 +1,30 @@
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "1TL-Nv-X4T"; */
+"1TL-Nv-X4T.configuration.title" = "Button";
+
+/* Class = "UITextField"; placeholder = "정광판에 표시할 글자"; ObjectID = "4Va-oJ-W3N"; */
+"4Va-oJ-W3N.placeholder" = "정광판에 표시할 글자";
+
+/* Class = "UILabel"; text = "LED"; ObjectID = "5jY-Dv-swu"; */
+"5jY-Dv-swu.text" = "LED";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dn7-ud-gcJ"; */
+"Dn7-ud-gcJ.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "NgT-G4-Gby"; */
+"NgT-G4-Gby.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "NgT-G4-Gby"; */
+"NgT-G4-Gby.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "텍스트 색상 설정"; ObjectID = "bh8-XW-M8Y"; */
+"bh8-XW-M8Y.text" = "텍스트 색상 설정";
+
+/* Class = "UINavigationItem"; title = "설정"; ObjectID = "fep-4r-bTH"; */
+"fep-4r-bTH.title" = "설정";
+
+/* Class = "UILabel"; text = "전광판에 표시할 글자"; ObjectID = "nJ3-RV-Ewy"; */
+"nJ3-RV-Ewy.text" = "전광판에 표시할 글자";
+
+/* Class = "UIBarButtonItem"; title = "설정"; ObjectID = "qd2-9p-a3S"; */
+"qd2-9p-a3S.title" = "설정";
