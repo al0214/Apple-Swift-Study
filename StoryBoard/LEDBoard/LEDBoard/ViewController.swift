@@ -8,12 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var ContentsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.ContentsLabel.textColor = .yellow
     }
-
-
 }
 
