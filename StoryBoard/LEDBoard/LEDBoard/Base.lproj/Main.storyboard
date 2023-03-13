@@ -131,8 +131,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Black_circle" buttonSize="mini"/>
                                                 <connections>
-                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="OES-EL-HGi"/>
-                                                    <action selector="TabTextColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="IW8-pk-Jrp"/>
+                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="kdn-NT-OyL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nva-k3-ciU">
@@ -140,7 +139,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Blue_circle" buttonSize="mini"/>
                                                 <connections>
-                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="cZb-Y5-xg0"/>
+                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="dip-aP-DgV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kF4-hd-LSg">
@@ -148,7 +147,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Orange_circle" buttonSize="mini"/>
                                                 <connections>
-                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="M9c-Ny-YmZ"/>
+                                                    <action selector="TabBackGroundColorButton:" destination="WbI-Lv-dZI" eventType="touchUpInside" id="NuO-ZY-ra2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -193,7 +192,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="설정" id="fep-4r-bTH"/>
                     <connections>
-                        <outlet property="BlackButton" destination="CYH-TT-sUw" id="eF9-0I-d6f"/>
+                        <outlet property="BlackButton" destination="CYH-TT-sUw" id="Lo5-MN-HEc"/>
                         <outlet property="BlueButton" destination="nva-k3-ciU" id="CDY-L0-rTo"/>
                         <outlet property="GreenButton" destination="kui-Y7-XDY" id="hlg-Jo-Xoh"/>
                         <outlet property="OrangeButton" destination="kF4-hd-LSg" id="plS-6K-VcX"/>
