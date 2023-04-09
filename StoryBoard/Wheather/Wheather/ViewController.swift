@@ -31,53 +31,23 @@ class ViewController: UIViewController {
         }
     }
     
-        func ConfigView(weatherInfo:WeatherInfo){
-            self.CityNameLabel.text = weatherInfo.name
-            if let weather = weatherInfo.weather.first {
-                self.weatherDecriptionLabel.text = weather.description
-            }
-            self.tempLabel.text = "\(Int(weatherInfo.temp.temp))°C"
-            self.minTempLabel.text = "최저: \(Int(weatherInfo.temp.minTemp))°C"
-            self.maxTempLabel.text = "최대: \(Int(weatherInfo.temp.maxTemp))°C"
+    func ConfigView(weatherInfo:WeatherInfo){
+        self.CityNameLabel.text = weatherInfo.name
+        if let weather = weatherInfo.weather.first {
+            self.weatherDecriptionLabel.text = weather.description
+            debugPrint(weather.description)
         }
-    //
-    //    func getWeatherLoc(cityName:String){
-    //        guard let url = URL(string:"http://api.openweathermap.org/geo/1.0/direct?q=\(cityName)&appid=c818c9ad59997d8c3df5e458ec8de8fa") else { return }
-    //        let session = URLSession(configuration: .default)
-    //        session.dataTask(with: url) {
-    //            [weak self] data, response, error in
-    //            guard let data = data, error == nil else { return print("error")}
-    //            let decoder = JSONDecoder()
-    //            guard let getweatherLoc = try? decoder.decode(WeatherLocation.self, from: data) else { return print("error") }
-    //            debugPrint(getweatherLoc.lon)
-    //            DispatchQueue.main.async {
-    //                self?.getCurrentWeather(lat: getweatherLoc.lat, lon: getweatherLoc.lon)
-    //            }
-    //        }.resume()
-    //    }
-    //
-    //
-    //
-    ////                 WeatherInfo
-    //    func getCurrentWeather(lat:Double, lon:Double) {
-    //        guard let url = URL(string:"https://api.openweathermap.org/data/3.0/onecall?lat=\(lat)&lon=\(lon)&units=metric&appid=c818c9ad59997d8c3df5e458ec8de8fa") else { return }
-    //        let session = URLSession(configuration: .default)
-    //        session.dataTask(with: url) {
-    //            [weak self] data, response, error in
-    //            guard let data = data, error == nil else { return }
-    //            let decoder = JSONDecoder()
-    //            guard let weatherInfo = try? decoder.decode(WeatherInfo.self, from: data) else { return }
-    //            debugPrint(weatherInfo)
-    //            DispatchQueue.main.async {
-    //                self?.weatherStackView.isHidden = false
-    //                self?.ConfigView(weatherInfo: weatherInfo)
-    //
-    //            }
-    //        } .resume()
-    //    }
-    //}
-    //
-    //
+        debugPrint(weatherInfo.name)
+        self.tempLabel.text = "\(Int(weatherInfo.temp.temp))°C"
+        self.minTempLabel.text = "최저: \(Int(weatherInfo.temp.minTemp))°C"
+        self.maxTempLabel.text = "최대: \(Int(weatherInfo.temp.maxTemp))°C"
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "에러", message: "City not found", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func getWeatherLoc(cityName:String){
         guard let url = URL(string:"http://api.openweathermap.org/geo/1.0/direct?q=\(cityName)&appid=c818c9ad59997d8c3df5e458ec8de8fa") else { return }
@@ -92,8 +62,15 @@ class ViewController: UIViewController {
                 print("getWeatherLoc error: no data")
                 return
             }
-            guard let getweatherLoc = try? JSONDecoder().decode([WeatherLocation].self, from: data) else { return }
-            debugPrint(getweatherLoc[0].lat)
+            
+            let decoder = JSONDecoder()
+            guard let getweatherLoc = try? decoder.decode([WeatherLocation].self, from: data) else { return }
+            if getweatherLoc.isEmpty == true {
+                DispatchQueue.main.async {
+                    self?.showAlert()
+                }
+                return
+            }
             DispatchQueue.main.async {
                 self?.getCurrentWeather(lat: getweatherLoc[0].lat, lon: getweatherLoc[0].lon)
             }
@@ -118,7 +95,7 @@ class ViewController: UIViewController {
                 print("getCurrentWeather error: decoding error", print(url))
                 return
             }
-            debugPrint(weatherInfo)
+            debugPrint(weatherInfo.name)
             DispatchQueue.main.async {
                 self?.weatherStackView.isHidden = false
                 self?.ConfigView(weatherInfo: weatherInfo)
