@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
     
     func getWeatherLoc(cityName:String){
-        guard let url = URL(string:"http://api.openweathermap.org/geo/1.0/direct?q=\(cityName)&appid=c818c9ad59997d8c3df5e458ec8de8fa") else { return }
+        guard let url = URL(string:"http://api.openweathermap.org/geo/1.0/direct?q=\(cityName)&appid=") else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) {
             [weak self] data, response, error in
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     func getCurrentWeather(lat:Double, lon:Double) {
-        guard let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric&appid=c818c9ad59997d8c3df5e458ec8de8fa") else { return }
+        guard let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&units=metric&appid=") else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) {
             [weak self] data, response, error in
