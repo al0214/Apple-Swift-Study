@@ -97,7 +97,7 @@ class ViewController: UIViewController {
     
     func fetchCovidOberView(completionHandler: @escaping (Result<CityCovidOverview, Error>) -> Void ) {
         let url = "https://api.corona-19.kr/korea/country/new/"
-        let param = ["serviceKey": "3AvJ1fD7Kpw8yPTjodhbcYsuXCHLOrnUN"]
+        let param = ["serviceKey": "API KEY"]
         
         
         AF.request(url, method: .get, parameters: param)
