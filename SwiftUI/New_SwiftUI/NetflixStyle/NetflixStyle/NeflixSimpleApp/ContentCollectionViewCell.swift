@@ -1,30 +1,28 @@
 //
 //  ContentCollectionViewCell.swift
-//  NetflixStyle
+//  NetflixStyleCollectionViewSampleApp
 //
-//  Created by SamoYed on 2023/04/16.
+//  Created by Bo-Young PARK on 2021/07/27.
 //
 
 import UIKit
 import SnapKit
 
 class ContentCollectionViewCell: UICollectionViewCell {
-    let imageView = UIImageView()
+    let
+        imageView = UIImageView()
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 5
         contentView.clipsToBounds = true
         
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         
         contentView.addSubview(imageView)
-        
-        imageView.snp.makeConstraints{
+        imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
     }
 }

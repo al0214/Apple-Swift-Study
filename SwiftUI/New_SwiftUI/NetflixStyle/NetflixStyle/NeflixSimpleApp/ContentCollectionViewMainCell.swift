@@ -1,3 +1,9 @@
+//
+//  ContentCollectionViewMainCell.swift
+//  NetflixStyleCollectionViewSampleApp
+//
+//  Created by Bo-Young PARK on 2021/07/28.
+//
 
 import UIKit
 

@@ -1,26 +1,23 @@
 //
 //  ContentCollectionViewHeader.swift
-//  NetflixStyle
+//  NetflixStyleCollectionViewSampleApp
 //
-//  Created by SamoYed on 2023/04/16.
+//  Created by Bo-Young PARK on 2021/07/27.
 //
 
 import UIKit
 
-class ContentCollcetionViewHeader: UICollectionReusableView {
+class ContentCollectionViewHeader: UICollectionReusableView {
     let sectionNameLabel = UILabel()
-    
+        
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        
         sectionNameLabel.font = .systemFont(ofSize: 17, weight: .bold)
         sectionNameLabel.textColor = .white
         sectionNameLabel.sizeToFit()
         
         addSubview(sectionNameLabel)
-        
-        sectionNameLabel.snp.makeConstraints{
+        sectionNameLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.top.bottom.leading.equalToSuperview().offset(10)
         }

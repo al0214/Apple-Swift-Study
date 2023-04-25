@@ -1,3 +1,10 @@
+//
+//  HomeViewController.swift
+//  NetflixStyleCollectionViewSampleApp
+//
+//  Created by Bo-Young PARK on 2021/07/27.
+//
+
 import UIKit
 import SwiftUI
 
@@ -21,7 +28,7 @@ class HomeViewController: UICollectionViewController {
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
         collectionView.register(ContentCollectionViewMainCell.self, forCellWithReuseIdentifier: "ContentCollectionViewMainCell")
         collectionView.register(ContentCollectionViewRankCell.self, forCellWithReuseIdentifier: "ContentCollectionViewRankCell")
-        collectionView.register(ContentCollcetionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollcetionViewHeader")
+        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
         collectionView.collectionViewLayout = layout()
         
         //Data 설정
@@ -173,7 +180,7 @@ extension HomeViewController {
     //헤더뷰 설정
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollcetionViewHeader", for: indexPath) as? ContentCollcetionViewHeader else { fatalError("Could not dequeue Header") }
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not dequeue Header") }
             
             headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
             return headerView
@@ -184,24 +191,29 @@ extension HomeViewController {
     
     //셀 선택
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sectionName = contents[indexPath.section].sectionName
-        print("TEST: \(sectionName) 섹션의 \(indexPath.row + 1)번째 콘텐츠")
+        let isFirstSection = indexPath.section == 0
+        let selectedItem = isFirstSection
+            ? mainItem
+            : contents[indexPath.section].contentItem[indexPath.row]
+        let contentDetailView = ContentDetailView(item: selectedItem)
+        let hostingVC = UIHostingController(rootView: contentDetailView)
+        self.show(hostingVC, sender: nil)
     }
 }
 
 //SwiftUI를 활용한 미리보기
 struct HomeViewController_Previews: PreviewProvider {
     static var previews: some View {
-        Container().edgesIgnoringSafeArea(.all)
+        HomeViewControllerRepresentable().edgesIgnoringSafeArea(.all)
     }
-    
-    struct Container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> UIViewController {
-            let layout = UICollectionViewFlowLayout()
-            let homeViewController = HomeViewController(collectionViewLayout: layout)
-            return UINavigationController(rootViewController: homeViewController)
-        }
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
-        typealias UIViewControllerType = UIViewController
+}
+
+struct HomeViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let layout = UICollectionViewFlowLayout()
+        let homeViewController = HomeViewController(collectionViewLayout: layout)
+        return UINavigationController(rootViewController: homeViewController)
     }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+    typealias UIViewControllerType = UIViewController
 }
